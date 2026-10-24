@@ -1,0 +1,11 @@
+{
+  "name": "arigato-container-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Intentionally outdated nginx Compose inventory and a fictional Japanese storefront; never deploy baseline.",
+  "scripts": {
+    "test": "node --test tests/static.test.mjs",
+    "test:smoke": "node tests/smoke.mjs"
+  }
+}

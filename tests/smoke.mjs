@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+const base = new URL(process.env.BASE_URL ?? 'http://127.0.0.1:8088');
+if (!['127.0.0.1', 'localhost'].includes(base.hostname) || base.protocol !== 'http:') throw new Error('Smoke tests only target an isolated loopback candidate.');
+const get = async (path) => fetch(new URL(path, base), { signal: AbortSignal.timeout(5000) });
+const home = await get('/'); assert.equal(home.status, 200); assert.match(await home.text(), /東京ストア/);
+const health = await get('/health.txt'); assert.equal(health.status, 200); assert.equal((await health.text()).trim(), 'ok');
+const catalog = await (await get('/catalog.json')).json(); assert.equal(catalog.currency, 'JPY'); assert.equal(catalog.products[0].name, '京都の抹茶セット');
+assert.equal((await get('/missing-file')).status, 404);
+assert.equal(home.headers.get('x-content-type-options'), 'nosniff');
+console.log('PASS: candidate HTTP, Japanese UTF-8, health, JPY catalog, 404 and security header contracts');

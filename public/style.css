@@ -1,0 +1,9 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #202723; background: #f5f3eb; }
+body { margin: 0; }
+main { max-width: 58rem; margin: 8vh auto; padding: 2rem; }
+.eyebrow { font-size: .75rem; letter-spacing: .15em; color: #57744f; }
+h1 { font-size: clamp(2.5rem, 7vw, 5rem); margin-block: 1rem; }
+section { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-block: 3rem; }
+article { border: 1px solid #d6dacf; padding: 1.5rem; min-width: 14rem; background: #fffef8; }
+small { font-weight: 400; color: #667361; }
+a { color: #386334; }
