@@ -1,7 +1,7 @@
 # INTENTIONALLY OUTDATED IMAGE: demonstration inventory only. Never deploy this baseline.
 services:
   web:
-    image: nginx:1.26.0
+    image: nginx:1.30.6@sha256:a7675fcee220f59b4a99f7098c06a0d5d999c2c0ee37c0211efb780536e5cb20
     user: "101:101"
     read_only: true
     cap_drop:
